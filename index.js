@@ -3,6 +3,9 @@ import cors from "cors";
 import mongoose from 'mongoose';
 import bodyParse from 'body-parser';
 import apiRoute from './src/api-routes/api-route.js';
+import config from 'config';
+const database = config.get('mangoURI');
+
 
 const app = express();
 app.use(cors());
@@ -13,7 +16,7 @@ app.use(bodyParse.urlencoded({
 
 app.use(bodyParse.json());
 
-mongoose.connect('mongodb: localhost/flick', {useNewUrlParser: true});
+mongoose.connect(database, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 let db = mongoose.connection;
 
