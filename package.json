@@ -1,0 +1,38 @@
+{
+  "name": "flick-backend",
+  "version": "1.0.0",
+  "description": "build some APIs for the flick app",
+  "type": "module",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel index.js -d dist",
+    "start": "npm run build && nodemon dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmyRukundo/Flick-Backend.git"
+  },
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "author": "EmyRukundo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EmyRukundo/Flick-Backend/issues"
+  },
+  "homepage": "https://github.com/EmyRukundo/Flick-Backend#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "babel-node": "0.0.1-security",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
