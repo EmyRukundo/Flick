@@ -1,5 +1,5 @@
 import express from 'express';
-import { New, Index, View , Delete} from '../controller/userController';
+import { New, Index, View , Delete, Login} from '../controller/userController';
 
 let router = express.Router();
 
@@ -17,5 +17,7 @@ router.route('/api/user')
 router.route('/api/user/:user_id')
 .get(View)
 .delete(Delete)
+router.route('/api/user/login')
+.post(Login)
 
 export default router;

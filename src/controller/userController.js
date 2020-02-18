@@ -23,6 +23,7 @@ const New = function(req, res){
          user.name = req.body.name ? req.body.name : user.name;
          user.gender = req.body.gender;
          user.email = req.body.email,
+         user.password = req.body.password,
          user.phone = req.body.phone;
 
 
@@ -64,6 +65,17 @@ const Delete = function (req, res){
             });
         };
 })}
-export{
-    New, View, Delete, Index
+
+ const Login = function(req, res) {
+        const { email, password } = req.body
+        const user = User.findByCredentials([email, password]);
+        if (!user) {
+            return res.status(401).send({error: 'Login failed! Check authentication credentials'})
+        }
+        res.send({ user, message: 'login successful' })
 }
+
+export{
+    New, View, Delete, Index, Login
+}
+
