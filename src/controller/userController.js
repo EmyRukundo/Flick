@@ -1,7 +1,5 @@
 import User from '../model/userModel';
 
-// Handle index actions
-
 
 const Index = function(req, res){
     User.get(function(err, users){
@@ -54,7 +52,7 @@ const View = function(req, res){
 };
 
 const Delete = function (req, res){
-    User.remove({ _id: req.params.user_id}, function(err, user){
+    User.deleteMany({ _id: req.params.user_id}, function(err, user){
          if(err){
              res.json(err);
          }else{
